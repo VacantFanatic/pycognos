@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testmanifest xmlns="manifest" author="Aran Gillmore" created="2013-02-13">
+    <config>
+        <domain>TST</domain>
+        <user>USER1</user>
+        <password>Password2</password>
+        <server>127.0.0.1</server>
+        <cogdir>cognos102</cogdir>
+        <namespace>AD</namespace>
+    </config>
+    <testcases>
+        <test id="Test-001">
+            <testname>Audit Report test 1</testname>
+            <testdescription>Verify that the audit test runs</testdescription>
+            <searchPath>CAMID("AD:u:35961db10af20a42952b710c584e3cb3")/folder[@name='My Folders']/folder[@name='Python']/report[@name='XSStest']</searchPath>
+            <prompts>
+                <prompt>
+                    <name>UID</name>
+                    <value>USER1</value>
+                    <displayValue>USER1</displayValue>
+                </prompt>
+            </prompts>
+        </test>
+        <test id="Test-002">
+            <testname>Audit Report test 2</testname>
+            <searchPath>CAMID("AD:u:35961db10af20a42952b710c584e3cb3")/folder[@name='My Folders']/folder[@name='Python']/report[@name='XSStest']</searchPath>
+            <prompts>
+                <prompt>
+                    <name>UID</name>
+                    <value>USER2</value>
+                    <displayValue>USER2</displayValue>
+                </prompt>
+            </prompts>
+        </test>
+        <test id="Test-003">
+            <testname>Audit Report test 3</testname>
+            <testdescription>This test will fail due to no prompts being entered</testdescription>
+            <searchPath>CAMID("AD:u:35961db10af20a42952b710c584e3cb3")/folder[@name='My Folders']/folder[@name='Python']/report[@name='XSStest']</searchPath>
+        </test>
+        <test id="Test-004">
+            <testname>Analysis Studio test</testname>
+            <testdescription>This test will test the output of the CMS service when querying an AS analysis.</testdescription>
+            <searchPath>CAMID("AD:u:35961db10af20a42952b710c584e3cb3")/folder[@name='My Folders']/folder[@name='Python']/analysis[@name='pytest']</searchPath>
+        </test>
+        <test id="Test-005">
+            <testname>Query Studio test</testname>
+            <testdescription>This test will test the output of the CMS service when querying an QS query.</testdescription>
+            <searchPath>CAMID("AD:u:35961db10af20a42952b710c584e3cb3")/folder[@name='My Folders']/folder[@name='Python']/query[@name='pyQuery']</searchPath>
+        </test>
+    </testcases>
+    <changelog>
+        <change id="001" date="2013-02-15">
+            <changedBy>axg768</changedBy>
+            <description>Added "prompts" element</description>
+        </change>
+        <change id="002" date="2013-02-18">
+            <changedBy>axg768</changedBy>
+            <description>added changelog element</description>
+        </change>
+        <change id="003" date="2013-02-19">
+            <changedBy>axg768</changedBy>
+            <description>added displayValue element and added test-004/005</description>
+        </change>
+    </changelog>
+</testmanifest>
+
